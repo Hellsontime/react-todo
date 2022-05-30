@@ -1,29 +1,29 @@
-import React, { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useRef, useState } from 'react'
+import PropTypes from 'prop-types'
 
 export default function TodoForm({ onSubmit, edit }) {
-  const [input, setInput] = useState(edit ? edit.value : '');
+  const [input, setInput] = useState(edit ? edit.value : '')
 
-  const inputRef = useRef(null);
+  const inputRef = useRef(null)
 
   useEffect(() => {
-    inputRef.current.focus();
-  });
+    inputRef.current.focus()
+  })
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     onSubmit({
       id: Math.floor(Math.random() * 10000),
       text: input
-    });
+    })
 
-    setInput('');
-  };
+    setInput('')
+  }
 
   const handleChange = (e) => {
-    setInput(e.target.value);
-  };
+    setInput(e.target.value)
+  }
 
   return (
     <form className="todo-form" onSubmit={handleSubmit}>
@@ -55,10 +55,10 @@ export default function TodoForm({ onSubmit, edit }) {
         </>
       )}
     </form>
-  );
+  )
 }
 
 TodoForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   edit: PropTypes.object
-};
+}
