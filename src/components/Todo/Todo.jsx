@@ -37,7 +37,7 @@ export default function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
 }
 
 Todo.propTypes = {
-  todos: PropTypes.object.isRequired,
+  todos: PropTypes.array.isRequired,
   completeTodo: PropTypes.func.isRequired,
   removeTodo: PropTypes.func.isRequired,
   updateTodo: PropTypes.func.isRequired
