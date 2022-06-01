@@ -7,8 +7,9 @@ import authHelper from '../services/helpers/auth/authHelper'
 import LOGIN_PAGE_API_LOGIN from '../services/constants/LoginPage'
 
 export default function LoginPageContainer() {
+  const userToken = localStorage.getItem('user-token')
   const { setUser } = useContext(UserContext)
-  const [redirectToTodo, setRedirectToTodo] = useState(false)
+  const [redirectToTodo, setRedirectToTodo] = useState(userToken ? true : false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 

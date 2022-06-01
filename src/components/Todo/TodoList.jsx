@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Todo from './Todo'
 import TodoForm from './TodoForm'
+import { CloseOutlined } from '@ant-design/icons'
 
 export default function TodoList() {
   const [todos, setTodos] = useState([])
@@ -37,16 +38,26 @@ export default function TodoList() {
     setTodos(updatedTodos)
   }
 
+  const finishUserSession = () => {
+    localStorage.clear()
+  }
+
   return (
-    <div>
-      <h1>What`s a plan for today?</h1>
-      <TodoForm onSubmit={addTodo} />
-      <Todo
-        todos={todos}
-        completeTodo={completeTodo}
-        removeTodo={removeTodo}
-        updateTodo={updateTodo}
-      />
-    </div>
+    <>
+      <div className="todo-app">
+        <a onClick={finishUserSession} target="_self" rel="noopener noreferrer" href="/">
+          {/* <CloseOutlined className="logout-button" onClick={finishUserSession} /> */}
+          <div className="logout-button">&times;</div>
+        </a>
+        <h1>What`s a plan for today?</h1>
+        <TodoForm onSubmit={addTodo} />
+        <Todo
+          todos={todos}
+          completeTodo={completeTodo}
+          removeTodo={removeTodo}
+          updateTodo={updateTodo}
+        />
+      </div>
+    </>
   )
 }
