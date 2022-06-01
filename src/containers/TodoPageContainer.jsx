@@ -8,17 +8,11 @@ import '../styles/PageStyles/TodoPage.sass'
 export default function TodoPageContainer() {
   const userToken = localStorage.getItem('user-token')
 
-  // return userToken ? (
-  //   <div className="todo-app">
-  //     <TodoList />
-  //   </div>
-  // ) : (
-  //   <Navigate to={LOGIN_PAGE_ROUTE} />
-  // )
-
-  return (
+  return userToken ? (
     <div className="todo-app">
       <TodoList />
     </div>
+  ) : (
+    <Navigate to={LOGIN_PAGE_ROUTE} />
   )
 }
