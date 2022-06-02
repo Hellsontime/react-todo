@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
 export default function TodoForm({ onSubmit, edit }) {
-  const [input, setInput] = useState(edit ? edit.value : '')
+  const [input, setInput] = useState(edit ? edit.title : '')
 
   const inputRef = useRef(null)
 
@@ -13,12 +13,14 @@ export default function TodoForm({ onSubmit, edit }) {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    onSubmit({
-      id: Math.floor(Math.random() * 10000),
-      text: input
-    })
-
-    setInput('')
+    onSubmit(
+      {
+        id: edit.id,
+        title: input,
+        status: edit.status
+      },
+      setInput
+    )
   }
 
   const handleChange = (e) => {
