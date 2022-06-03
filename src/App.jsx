@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState, useMemo } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import 'antd/dist/antd.css'

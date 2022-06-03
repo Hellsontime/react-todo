@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import { TODOS_API_ROUTE } from '../../services/constants/App'
 import { customAxios } from '../../services/helpers/axiosHelper'
@@ -31,8 +30,6 @@ export default function TodoList() {
   const removeTodo = (id) => {
     deleteTodoHelper(id, setTodos)
   }
-
-  console.log(todos)
 
   const completeTodo = (id) => {
     todos.map((todo) => {
