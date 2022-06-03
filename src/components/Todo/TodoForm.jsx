@@ -13,14 +13,21 @@ export default function TodoForm({ onSubmit, edit }) {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    onSubmit(
-      {
-        id: edit.id,
-        title: input,
-        status: edit.status
-      },
-      setInput
-    )
+    console.log(edit)
+
+    edit
+      ? onSubmit(
+          {
+            id: edit.id,
+            title: input,
+            status: edit.status
+          },
+          setInput
+        )
+      : onSubmit({
+          title: input
+        })
+    setInput('')
   }
 
   const handleChange = (e) => {
