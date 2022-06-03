@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  react-todo-ui:
+    image: react-todo-ui
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_HOST: $REACT_APP_API_HOST
+        REACT_APP_API_BASE_PATH: $REACT_APP_API_BASE_PATH
+        PORT: $PORT
+        EXTERNAL_PORT: $EXTERNAL_PORT
+    ports:
+      - ${EXTERNAL_PORT}:${PORT}
